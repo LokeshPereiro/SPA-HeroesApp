@@ -1,0 +1,18 @@
+## useNavigate();
+--> const navigate = useNavigate();
+
+(2 args: to, options)
+
+ const handleLogOut = () => {
+    navigate("/login", {
+        //el replace evita que volvamos otra vez a la página anterior o el historial anterior
+        replace: true
+    });
+  };
+
+## useParams()
+--> me permite la url (muy útil para extraer los IDs)
+
+## useLocation()
+--> Me permite obtener tanto el pathname como la query. No obstante, es útil si solo se manda una query. 
+--> query-string: me permite extraer multiples queries de manera más sencilla
