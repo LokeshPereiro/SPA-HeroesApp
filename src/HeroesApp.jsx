@@ -1,10 +1,10 @@
+import { AuthProvider } from "./auth/context";
 import { AppRouter } from "./router/AppRouter";
-import { NavBar } from "./ui";
 
 export const HeroesApp = () => {
   return (
-    <div>
+    <AuthProvider>
       <AppRouter />
-    </div>
+    </AuthProvider>
   );
 };
