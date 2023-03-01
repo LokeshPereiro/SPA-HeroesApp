@@ -1,3 +1,3 @@
 # SPA-HeroesApp
 Single Page Application 
---> https://lok-spa-heroes-app.netlify.app/login
+--> https://lok-spa-heroes-app.netlify.app
