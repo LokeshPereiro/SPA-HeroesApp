@@ -1,4 +1,4 @@
-import { heroes } from "../../assets/data/dataHeroes";
+import { heroes } from "../../public/assets/data/dataHeroes";
 
 export const getHeroByPublisher = (publisher) => {
   const validPublishers = ["DC Comics", "Marvel Comics"];

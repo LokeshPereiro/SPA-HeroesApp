@@ -1,4 +1,4 @@
-import { heroes } from "../../assets/data/dataHeroes";
+import { heroes } from "../../public/assets/data/dataHeroes";
 
 export const getHeroeByName = (name = "") => {
   name = name.toLowerCase().trim();
