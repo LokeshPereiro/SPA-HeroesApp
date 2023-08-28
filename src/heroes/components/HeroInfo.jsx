@@ -11,7 +11,7 @@ export const HeroInfo = () => {
   const { heroId } = useParams();
 
   // A priori no sería necesario el useMemo en este caso.. no obstante es bueno hacerlo para que no se tenga que llamar otra vez a la función para mostrar lo mismo (no haya ser que el heroId cambie).
-  // EN nuestro caso la base de datos es pequeño, la obtimización casi se no se nota pero si esto puera una llamada a la api si se notaría
+  // En nuestro caso la base de datos es pequeña, la obtimización casi ni se nota, pero si esto fuera una llamada a la api si se notaría
   const wishedHero = useMemo(() => getHeroByID(heroId), [heroId]);
 
   if (!wishedHero) {

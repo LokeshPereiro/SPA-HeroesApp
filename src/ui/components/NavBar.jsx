@@ -2,15 +2,18 @@ import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../auth/context";
 
-export const NavBar = (props) => {
+export const NavBar = () => {
   const navigate = useNavigate();
   const { userInfo, logout } = useContext(AuthContext);
   // console.log({ userInfo });
 
-  const handleLogOut = () => {
+  function handleLogOut() {
     logout();
-    navigate("/login");
-  };
+    navigate("/login", {
+      //Para evitar que vuelve a la página anterior (en nuestro caso a las páginas de heroes una vez cerrada la sesion)
+      replace: true,
+    });
+  }
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2 rounded-3">
       <Link className="navbar-brand" to="/">

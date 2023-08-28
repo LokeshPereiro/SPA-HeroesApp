@@ -9,13 +9,13 @@ export const HeroesRoutes = () => {
       <NavBar />
       <div className="container">
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="marvel" element={<MarvelPage />} />
           <Route path="dc" element={<DCPage />} />
 
           <Route path="search" element={<SearchPage />} />
           <Route path="hero/:heroId" element={<HeroInfo />} />
 
-          <Route path="/" element={<Home />} />
           <Route path="/err" element={<ErrorPage />} />
           <Route path="/*" element={<Navigate to="/err" />} />
         </Routes>

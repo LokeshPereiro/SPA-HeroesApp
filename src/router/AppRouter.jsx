@@ -7,7 +7,7 @@ import { PublicRouter } from "./PublicRouter";
 
 export const AppRouter = () => {
   return (
-    <div>
+    <>
       <Routes>
         <Route
           path="/*"
@@ -27,6 +27,6 @@ export const AppRouter = () => {
           }
         />
       </Routes>
-    </div>
+    </>
   );
 };

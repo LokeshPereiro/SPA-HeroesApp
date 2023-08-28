@@ -8,10 +8,12 @@ export const PrivateRoutes = ({ children }) => {
 
   const lastVisitedPath = pathname + search;
 
-  // Podemos memorizar el último path visitado tanto con el useEffect(), como con el useMemo(). Ambos guardaran el 'lasPath' en el localStorage si hubo algún cambio en el pathname o en el search (search porque tenemos la query param de busqueda)
+  // console.log(lastVisitedPath);
+
+  // Podemos memorizar el último path visitado tanto con el useEffect(), como con el useMemo(). Ambos guardaran el 'lastPath' en el localStorage si hubo algún cambio en el pathname o en el search (search porque tenemos la query param de busqueda)
   useEffect(() => {
     localStorage.setItem("lastPath", lastVisitedPath);
-    console.log("Re-rendered...");
+    // console.log("Re-rendered...");
   }, [pathname, search]);
 
   // useMemo(() => {

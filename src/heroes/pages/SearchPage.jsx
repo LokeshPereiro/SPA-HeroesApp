@@ -1,18 +1,20 @@
 import { HeroCard } from "../components";
 import { useForm } from "../../hooks/useForm";
 import { useLocation, useNavigate } from "react-router-dom";
+//Me permite leer la url por partes y traabajar mejor las queries
 import queryString from "query-string";
 import { getHeroeByName } from "../../helpers/getHeroeByName";
 
 export const SearchPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  // console.log(location);
 
   const { q = "" } = queryString.parse(location.search);
 
   const heroesName = getHeroeByName(q);
 
-  const { searchText, onInputChange, onResetForm } = useForm({
+  const { searchText, onInputChange } = useForm({
     // le asignamos la query para cuando se recarge la página siga mostrarndo el query/nombre introducido en el input de busqueda
     searchText: q,
   });
@@ -20,10 +22,12 @@ export const SearchPage = () => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     // Navego en la misma página para leer la query
+    if (searchText.trim().length <= 1) return;
     navigate(`?q=${searchText}`);
+    // navigate(`?q=${searchText.toLowerCase().trim()}`);
   };
-  const showSearch = q.length === 0;
-  const showError = q.length > 0 && heroesName.length === 0;
+  const showMsgBox = q.length === 0;
+  const showErrorMsgBox = q.length > 0 && heroesName.length === 0;
   return (
     <>
       <div className="row mt-1">
@@ -47,7 +51,6 @@ export const SearchPage = () => {
           <h4>Results</h4>
           <hr />
           {/* Opción 1 */}
-
           {/* {q === "" ? (
             <div className="alert alert-primary">Waiting to search..</div>
           ) : (
@@ -59,17 +62,16 @@ export const SearchPage = () => {
           )} */}
 
           {/* Opción 2 */}
-
           <div
             className="alert alert-primary"
-            style={{ display: showSearch ? "" : "none" }}
+            style={{ display: showMsgBox ? "" : "none" }}
           >
             Waiting to search..
           </div>
 
           <div
             className="alert alert-danger"
-            style={{ display: showError ? "" : "none" }}
+            style={{ display: showErrorMsgBox ? "" : "none" }}
           >
             No Hero <b>{`${q}`}</b>
           </div>

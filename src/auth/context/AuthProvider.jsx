@@ -26,8 +26,8 @@ export const AuthProvider = ({ children }) => {
   );
 
   // El nombre va a ser el nombre que recibo como argumento
-  const login = (name = "") => {
-    const userData = { id: "xyz123", name: name };
+  const login = (nameArg = "") => {
+    const userData = { id: "xyz123", name: !nameArg ? "DefaultName" : nameArg };
     const action = {
       type: types.login,
       payload: userData,

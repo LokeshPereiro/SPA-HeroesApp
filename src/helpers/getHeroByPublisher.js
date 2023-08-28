@@ -1,12 +1,12 @@
 import { heroes } from "../../public/assets/data/dataHeroes";
 
-export const getHeroByPublisher = (publisher) => {
+export const getHeroByPublisher = (publisherArg) => {
   const validPublishers = ["DC Comics", "Marvel Comics"];
 
   //   Small validation so that we can only filter 'DC Comics' & 'Marvel' heros
-  if (!validPublishers.includes(publisher)) {
-    throw new Error(`Sorry, ${publisher} is not defined in our database`);
+  if (!validPublishers.includes(publisherArg)) {
+    throw new Error(`Sorry, ${publisherArg} is not defined in our database`);
   }
 
-  return heroes.filter((hero) => hero.publisher === publisher);
+  return heroes.filter((hero) => hero.publisher === publisherArg);
 };
